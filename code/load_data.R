@@ -19,8 +19,8 @@ gb_boundaries <- ms_simplify(gb_boundaries, keep=0.2)
 
 
 # Read in Census data that we use to regress on.
-census_data <- read_csv("http://homepages.see.leeds.ac.uk/~georjb/ppd/r/data/2011_census_oa.csv")
-oa_la_lookup <- read.csv("http://homepages.see.leeds.ac.uk/~georjb/ppd/r/data/oa_la_lookup.csv")
+census_data <- read_csv("http://www.roger-beecham.com/GEOG5022M/data/2011_census_oa.csv")
+oa_la_lookup <- read.csv("http://www.roger-beecham.com/GEOG5022M/data/oa_la_lookup.csv")
 oa_la_lookup$OA <- as.character(oa_la_lookup$OA)
 census_data <- left_join(census_data, oa_la_lookup)
 # Iterate over OA level data and compute summary statistics on relevant variables to LA level.
@@ -48,7 +48,7 @@ census_data <- census_data %>%
       sum(Total_Employment_16_to_74)
   )
 
-birth_country_11 <- read_csv("http://homepages.see.leeds.ac.uk/~georjb/ppd/r/data/country_of_birth_2011.csv")
+birth_country_11 <- read_csv("http://www.roger-beecham.com/GEOG5022M/data/country_of_birth_2011.csv")
 birth_country_11 <- left_join(birth_country_11, oa_la_lookup, by=c("oa_code"="OA"))
 birth_country_11 <- birth_country_11 %>%
   group_by(LOCAL_AUTHORITY_CODE) %>%

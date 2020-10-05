@@ -259,7 +259,7 @@ It is completely understandable if at this point you think somewhat tedious the 
 # A pre-prepared simple features data frame that loads Local Authority outlines
 # (as sfc_MULTIPOLYGON) and 2011 Census data that we'll use
 # to model the vote for the remaining sessions.
-data_gb <- st_read("http://www.roger-beecham.com/GEOG5022/data/data_gb.geojson")
+data_gb <- st_read("http://www.roger-beecham.com/GEOG5022M/data/data_gb.geojson")
 --
 
 [{task}]
