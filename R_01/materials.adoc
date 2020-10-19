@@ -29,6 +29,15 @@ By the end of this session you should be able to:
 [[introduction]]
 == Introduction
 
+++++
+<iframe width="640" height="360"
+  src="https://web.microsoftstream.com/embed/video/b4095e0e-e3cc-4b9c-9ab6-63669d5687d7?autoplay=false&amp;showinfo=true"
+  allowfullscreen
+  style="border:none;">
+</iframe>
+++++
+
+
 For the next two sessions we'll be learning about a key technology for doing spatial data analysis: https://www.r-project.org[R]. It has origins in academia, but is now global in reach and used by an increasingly impressive number of organisations.
 
 .Figure 1: Data science job trends for R (blue) and SAS (orange). In Munchen, R. (http://r4stats.com/articles/popularity/[online])
@@ -38,14 +47,13 @@ image:images/r_jobs.png[]
 
 There is not sufficient time to discuss the fundamentals of the R language in depth. Rather, these sessions aim to give you a flavour and the most useful software and libraries for interfacing with R.
 
-
 == What is R?
 
 R is a free, open statistical programming language and environment. Released as open source software as part of a research project in 1995, for some time R was the preserve of academics. From 2010s onwards, with the advent of _Big Data_ and new sub-disciplines such as _Data Science_, R enjoyed rapid growth and is used increasingly outside of academia, by organisations such as Google [https://research.google.com/pubs/pub37483.html[example]], Facebook [http://flowingdata.com/2010/12/13/facebook-worldwide-friendships-mapped/[example]], Twitter [https://blog.twitter.com/official/en_us/a/2013/the-geography-of-tweets.html[example]], New York Times [http://www.nytimes.com/interactive/2012/05/05/sports/baseball/mariano-rivera-and-his-peers.html?ref=baseballexample[example]], BBC [https://bbc.github.io/rcookbook/[example]] and many more.
 
 Rather than simply a free alternative to proprietary statistical analysis software such as SPSS, R is a programming language in and of itself and can be used for:
 
-* Data Visualization design: https://www.rgs.org/geography/geovisualisation/voting-patterns-in-the-2019-general-election/?utm_source=Twitter&utm_medium=social&utm_campaign=SocialSignIn[2019 General Election DataVis] | http://www.roger-beecham.com/covid-19-datavis/[Covid-19 DataVis]
+* Data Visualization design: https://www.rgs.org/geography/geovisualisation/voting-patterns-in-the-2019-general-election/?utm_source=Twitter&utm_medium=social&utm_campaign=SocialSignIn[2019 General Election DataVis] | https://threadreaderapp.com/thread/1317019462453895168.html[Covid-19 DataVis]
 
 * Developing interactive (visualization) software:  https://gehlenborglab.shinyapps.io/upsetr/[UpSet]
 
@@ -82,6 +90,10 @@ In recent years there has been much introspection around how science works -- ar
 Concerns around the _reproducibility crisis_ are not simply a function of transparency in methodology and research design. Rather, they relate to a culture and incentive structure whereby scientific claims are conferred with authority when reported within the (slightly backwards) logic of Null Hypothesis Significance Testing (NHST) and _p-values_. This isn't a statistics session, but for an accessible read on the phenomenon of _p-hacking_ (with interactive graphic) see https://fivethirtyeight.com/features/science-isnt-broken/#part1[this article] from the excellent http://fivethirtyeight.com[FiveThirtyEight] website. Again, the upshot of all this introspection is a rethinking of the way in which Statistics is taught in schools and universities, with greater emphasis on understanding through computational approaches rather than traditional equations, formulas and probability tables. Where does R fit within this? Simply put: R is far better placed than traditional software tools and point-and-click paradigms for supporting computational approaches to statistics -- with a set of methods and libraries for performing simulations and permutation-based tests.
 
 == Task 1. Get familiar with the R and RStudio environment
+
+++++
+<iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/b7b18a20-bbd1-4f27-8474-a076f5c82673?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
+++++
 
 === Open RStudio
 
@@ -174,6 +186,10 @@ Notice that the results data now appears under the `Data` field of the _Environm
 
 == Task 2. Perform some exploratory data analysis
 
+++++
+<iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/4a00d3b3-5a9c-404f-9b26-5977ee3b9a2f?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
+++++
+
 === Do some data wrangling
 
 _Data wrangling_ type operations are supported by functions that form the _dplyr_ package. Again, _dplyr_ is within the family of packages that comprise the _tidyverse_. Its functions have been named with verbs that neatly describe their purpose -- `filter()`, `select()`, `arrange()`, `group_by()`, `summarise()` and more. The pipe (`%>%`) is a particularly handy operator that allows calls to these functions to be chained together.
@@ -251,6 +267,10 @@ It is completely understandable if at this point you think somewhat tedious the 
 
 
 == Task 3. Perform some exploratory spatial data analysis
+
+++++
+<iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/5fd28b89-a7bc-4eb6-a8a5-47f2b87cf42c?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
+++++
 
 === Load in some spatial (and other attribute) data
 
