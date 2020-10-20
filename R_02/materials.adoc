@@ -22,6 +22,9 @@ By the end of this session you should be able to:
 * learn about permutation-based approaches to statistical testing
 
 ****
+++++
+<iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/3cf4008f-f2b7-4db8-93e7-f99cb691b015?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
+++++
 
 == Task 1. Explore bivariate relationships using correlation
 
