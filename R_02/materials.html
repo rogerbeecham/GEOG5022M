@@ -561,7 +561,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>In this session you will continue to learn about R as a technology for doing data analysis, again using the somewhat depressing Brexit result as a case study.  This session will be more practical-focussed (and analytically involved) than the last. You will use R to generate insights into the demographics behind the Brexit vote.</p>
+<p>In this session you will continue to learn about R as a technology for doing data analysis, again using the Brexit result as a case study.  This session will be more practical-focussed (and analytically involved) than the last. You will use R to generate insights into the demographics behind the Brexit vote.</p>
 </div>
 <div class="paragraph">
 <p>By the end of this session you should be able to:</p>
@@ -614,6 +614,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="content">
 <pre class="CodeRay highlight"><code># Calculate correlation coefficient of share Leave by degree-educated.
 data_gb %&gt;%
+  st_drop_geometry() %&gt;%
   summarise(cor(share_leave, degree_educated))
 
 # Generate scatterplot of share Leave by degree-educated.
@@ -1098,7 +1099,7 @@ univariate_models %&gt;%
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-20 12:40:16 BST
+Last updated 2021-10-19 11:21:20 BST
 </div>
 </div>
 <script type="text/x-mathjax-config">

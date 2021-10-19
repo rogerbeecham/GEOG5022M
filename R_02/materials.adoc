@@ -11,7 +11,7 @@ By <https://www.roger-beecham.com[Roger Beecham]>
 :toc: right
 
 ****
-In this session you will continue to learn about R as a technology for doing data analysis, again using the somewhat depressing Brexit result as a case study.  This session will be more practical-focussed (and analytically involved) than the last. You will use R to generate insights into the demographics behind the Brexit vote.
+In this session you will continue to learn about R as a technology for doing data analysis, again using the Brexit result as a case study.  This session will be more practical-focussed (and analytically involved) than the last. You will use R to generate insights into the demographics behind the Brexit vote.
 
 By the end of this session you should be able to:
 
@@ -46,6 +46,7 @@ The code below allows the share of Leave vote and demographic characteristics of
 --
 # Calculate correlation coefficient of share Leave by degree-educated.
 data_gb %>%
+  st_drop_geometry() %>% 
   summarise(cor(share_leave, degree_educated))
 
 # Generate scatterplot of share Leave by degree-educated.

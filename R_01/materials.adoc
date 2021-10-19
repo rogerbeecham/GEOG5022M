@@ -138,9 +138,9 @@ The `base` package is core and native to R. Unlike all other packages, it does n
 
 === Install some packages
 
-In these introductory sessions, you'll mainly be using a collection of _packages_ that form part of the so-called _tidyverse_. Do read some of the documentation provided from the http://www.tidyverse.org[project website] to learn more around its philosophy. The packages together provide a very intuitive means of interacting with R and support  analysis tasks that form most http://r4ds.had.co.nz/introduction.html[Data Science workflows].
+In these introductory sessions, you'll be using a collection of _packages_ that form part of the so-called _tidyverse_. Do read some of the documentation provided from the http://www.tidyverse.org[project website] to learn more around its philosophy. The packages together provide a very intuitive means of interacting with R and support  analysis tasks that form most http://r4ds.had.co.nz/introduction.html[Data Science workflows].
 
-There are two steps to making packages available in your working environment. `install.packages(<package-name>)` downloads the named package from a repository, `library(<package-name>)` makes the package available in your current session.
+There are two steps to making packages available in your working environment: `install.packages(<package-name>)` downloads the named package from a repository, `library(<package-name>)` makes the package available in your current session.
 
 
 === Read in some data
@@ -262,7 +262,7 @@ region_summary %>%
 
 [{aside}]
 --
-It is completely understandable if at this point you think somewhat tedious the whole idea of generating code to describe your graphics. However, once you learn how to construct graphics in this way -- once you learn the `ggplot2` grammar -- it is possible to very quickly generate relatively sophisticated exploratory graphics. That the grammar forces you to think more abstractly about data type and visual mapping is an important point. It introduces you to a key tenet of Information Visualization theory (http://esripress.esri.com/display/index.cfm?fuseaction=display&websiteID=190[Semiology of Graphics]) by stealth, but also encourages you to think in depth about your data, its structure and (since you're producing graphics) the insights that can be made from visualizing that structure.
+For those used to working in point-and-click interfaces, generating code to describe graphics may seem unnecessary. However, once you learn how to construct graphics in this way -- once you learn the `ggplot2` grammar -- it is possible to very quickly generate relatively sophisticated exploratory graphics. That the grammar forces you to think more abstractly about data type and visual mapping is an important point. It introduces you to a key tenet of Information Visualization theory (http://esripress.esri.com/display/index.cfm?fuseaction=display&websiteID=190[Semiology of Graphics]) by stealth, but also encourages you to think in depth about your data, its structure and (since you're producing graphics) the insights that can be made from visualizing that structure.
 --
 
 
@@ -296,7 +296,7 @@ The data frame we've called `data_gb` is a special class of data frame to the ex
 
 === Explore spatial variation in the Leave:Remain vote
 
-In this section, you will analyse variation in EU referendum voting behaviour by Local Authority by generating various Choropleth maps. You will do so using the https://github.com/mtennekes/tmap[tmap] package: a new, user-friendly library that adopts a syntax similar to that of `ggplot2`.
+In this section, you will analyse variation in EU referendum voting behaviour by Local Authority by generating various Choropleth maps. You will do so using the https://github.com/mtennekes/tmap[tmap] package, a user-friendly library that adopts a syntax similar to that of `ggplot2`.
 
 The general form of a _tmap_ specification:
 
