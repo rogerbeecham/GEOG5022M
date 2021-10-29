@@ -46,7 +46,7 @@ The code below allows the share of Leave vote and demographic characteristics of
 --
 # Calculate correlation coefficient of share Leave by degree-educated.
 data_gb %>%
-  st_drop_geometry() %>% 
+  st_drop_geometry() %>%
   summarise(cor(share_leave, degree_educated))
 
 # Generate scatterplot of share Leave by degree-educated.
@@ -181,6 +181,28 @@ data_gb$resids_degrees = as_tibble(resid(lm_degree_educated))$value
 data_gb %>%
   ggplot(aes(resids_degrees))+
   geom_histogram()
+
+  # Scatterplot coloured by residuals.
+  data_gb %>%
+      ggplot(aes(x=degree_educated, y=share_leave, fill=resids_degrees))+
+      geom_point(colour="#525252",pch=21)+
+      geom_smooth(method = "lm", se = FALSE, colour="#525252")+
+      scale_fill_distiller(palette="RdBu", direction=1, limits=c(-max_resid, max_resid))+
+      theme_bw()
+
+
+  # Map coloured by residuals implemented in ggplot.
+  data_gb %>%
+    ggplot()+
+    geom_sf(aes(fill=resids_degrees), size=.03, colour="#525252")+
+    # For Region outlines
+    geom_sf(
+      data=. %>% group_by(Region) %>% summarise(),
+      size=.07, fill="transparent", colour="#525252"
+    )+
+    coord_sf(datum=NA) +
+    scale_fill_distiller(palette="RdBu", direction=1, limits=c(-max_resid, max_resid))+
+    theme_bw()
 --
 
 As can be seen from the histogram, the distribution of residuals is closer to log normal. Inspecting the scatterplot, there is a group of LAs with observed Leave vote shares much lower than expected by our model. Plotting them spatially, we find that they are overwhelmingly concentrated in Scotland. Given the very clear break with Scotland and the rest of the country, there is a strong argument for developing a separate model for England & Wales. Rather than a smooth spatial process, which we sometimes see in maps of residuals, Scotland is categorically distinct.
