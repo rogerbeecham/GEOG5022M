@@ -842,28 +842,30 @@ data_gb$resids_degrees = as_tibble(resid(lm_degree_educated))$value
 data_gb %&gt;%
   ggplot(aes(resids_degrees))+
   geom_histogram()
+# Calculate maximum residual value to pin to colour scheme.
+max_resid &lt;- data_gb %&gt;% pull(resids_degrees) %&gt;% abs() %&gt;% max()
 
-  # Scatterplot coloured by residuals.
-  data_gb %&gt;%
-      ggplot(aes(x=degree_educated, y=share_leave, fill=resids_degrees))+
-      geom_point(colour="#525252",pch=21)+
-      geom_smooth(method = "lm", se = FALSE, colour="#525252")+
-      scale_fill_distiller(palette="RdBu", direction=1, limits=c(-max_resid, max_resid))+
-      theme_bw()
+# Scatterplot coloured by residuals.
+data_gb %&gt;%
+    ggplot(aes(x=degree_educated, y=share_leave, fill=resids_degrees))+
+    geom_point(colour="#525252",pch=21)+
+    geom_smooth(method = "lm", se = FALSE, colour="#525252")+
+    scale_fill_distiller(palette="RdBu", direction=1, limits=c(-max_resid, max_resid))+
+    theme_bw()
 
 
-  # Map coloured by residuals implemented in ggplot.
-  data_gb %&gt;%
-    ggplot()+
-    geom_sf(aes(fill=resids_degrees), size=.03, colour="#525252")+
-    # For Region outlines
-    geom_sf(
+# Map coloured by residuals implemented in ggplot.
+data_gb %&gt;%
+  ggplot()+
+  geom_sf(aes(fill=resids_degrees), size=.03, colour="#525252")+
+  # For Region outlines
+  geom_sf(
       data=. %&gt;% group_by(Region) %&gt;% summarise(),
       size=.07, fill="transparent", colour="#525252"
-    )+
-    coord_sf(datum=NA) +
-    scale_fill_distiller(palette="RdBu", direction=1, limits=c(-max_resid, max_resid))+
-    theme_bw()</code></pre>
+  )+
+  coord_sf(datum=NA) +
+  scale_fill_distiller(palette="RdBu", direction=1, limits=c(-max_resid, max_resid))+
+  theme_bw()</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1121,7 +1123,7 @@ univariate_models %&gt;%
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-10-29 11:42:40 BST
+Last updated 2021-10-29 12:45:59 BST
 </div>
 </div>
 <script type="text/x-mathjax-config">
