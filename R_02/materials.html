@@ -543,13 +543,6 @@ table.CodeRay td.code>pre{padding:0}
 </ul>
 </li>
 <li><a href="#_task_4_data_challenge">Task 4. Data challenge</a></li>
-<li><a href="#_assessed_task">Assessed Task</a>
-<ul class="sectlevel2">
-<li><a href="#_assessed_task_1_calculate">Assessed task 1. Calculate</a></li>
-<li><a href="#_assessed_task_2_plot">Assessed task 2. Plot</a></li>
-<li><a href="#_assessed_task_3_model_and_map">Assessed task 3. Model and Map</a></li>
-</ul>
-</li>
 <li><a href="#_optional_aside_for_the_interested_r_user">Optional aside for the interested R user</a></li>
 <li><a href="#_further_reading_non_essential">Further reading (non-essential)</a></li>
 </ul>
@@ -977,81 +970,6 @@ Individual coding task
 </div>
 </div>
 <div class="sect1">
-<h2 id="_assessed_task">Assessed Task</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This is a short, assessed task. It does not assume knowledge or coding skills above what you have learnt in the previous two sessions.</p>
-</div>
-<div class="paragraph">
-<p>The task is designed to assess your:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>ability to produce outputs in R</p>
-</li>
-<li>
-<p>understanding of data types and their encoding through statistical graphics</p>
-</li>
-<li>
-<p>interpretation of quantitative structure in datasets</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>You can quickly glance at the assessed task below. However, the document into which you&#8217;ll need to upload your answers can be found on <em>Minerva</em>, under this module (<em>GEOG5022M</em>), then <em>Learning Resources</em>. Click on this session&#8217;s folder (<code>Week 5 - Friday - R II</code>). You should see a word document called <code>GEOG5022 - PPD Assessment Template - R.docx</code>. Download this document to a local directory&#8201;&#8212;&#8201;this is the document you will use to paste in your answers. Once you&#8217;ve completed the task, save the document using the filename <code>PPD_R_&lt;StudentID&gt;</code>. upload the completed document to <em>Turnitin</em>&#8201;&#8212;&#8201;again, a link is provided under <code>Week 5 - Friday - R II</code>.</p>
-</div>
-<div class="sect2">
-<h3 id="_assessed_task_1_calculate">Assessed task 1. Calculate</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Calculate the <em>share of Leave</em> vote for GB as a whole. Note that you will need to work on the <code>data_gb</code> data frame for this. Once you&#8217;ve generated and run the code, paste it and its output (from the R console) into <code>GEOG5022 - PPD Assessment Template - R.docx</code> for submission.</p>
-</li>
-<li>
-<p>Working on the <code>data_gb</code> data frame, find the top 10 LAs most and least in favour of Leave and print out the Local Authority name and <code>share_leave</code> result. Paste the code and its output into  <code>GEOG5022 - PPD Assessment Template - R.docx</code> for submission. Hint: you may find useful the code block under Task 2 (from yesterday&#8217;s session).</p>
-</li>
-<li>
-<p>Calculate correlation coefficients for <code>share Leave</code> against the <code>eu_born</code> variable separately for each Region of GB. Again, paste the code and its output into <code>GEOG5022 - PPD Assessment Template - R.docx</code> for submission. Hint: as well as the <code>cor</code> function for calculating the correlation coefficient, you will need to make use of <code>group_by</code>.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_assessed_task_2_plot">Assessed task 2. Plot</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Create a set of histograms displaying distributions of <code>share Leave</code> amongst LAs in Great Britain faceted by <code>Region</code>. Once you&#8217;ve created the plot, save it to a local folder by selecting <code>export</code>, <code>save as Image</code> along with the code snippet used to create it. Then paste the graphic and code into <code>GEOG5022 - PPD Assessment Template - R.docx</code> for submission.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_assessed_task_3_model_and_map">Assessed task 3. Model and Map</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Using the code developed as part of Task 3 and Task 4 of today&#8217;s session, generate a scatterplot of <em>share of Leave</em> against some demographic characteristic, calculate a linear model that assumes variation in the Leave vote to be a linear function of that demographic characteristic and colour the observations in the scatterplot (Local Authorities) by residual values from that model. Beside the scatterplot, create a map of residual values from the model for each Local Authority.  Your scatterplot and map should follow a visual grammar similar to that used in Figure 3 of yesterday’s session. Paste the graphic and code into <code>GEOG5022 - PPD Assessment Template - R.docx</code> for submission along with a summary of model fit and coefficients, generated by <code>summary(&lt;model-object-name&gt;)</code>.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="_optional_aside_for_the_interested_r_user">Optional aside for the interested R user</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -1123,7 +1041,7 @@ univariate_models %&gt;%
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-10-29 12:45:59 BST
+Last updated 2022-10-17 15:34:51 BST
 </div>
 </div>
 <script type="text/x-mathjax-config">
