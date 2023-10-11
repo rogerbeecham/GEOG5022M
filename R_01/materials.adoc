@@ -40,26 +40,20 @@ By the end of this session you should be able to:
 
 For the next two sessions we'll be learning about a key technology for doing spatial data analysis: https://www.r-project.org[R]. It has origins in academia, but is now global in reach and used by an increasingly impressive number of organisations.
 
-.Figure 1: Data science job trends for R (blue) and SAS (orange). In Munchen, R. (http://r4stats.com/articles/popularity/[online])
---
-image:images/r_jobs.png[]
---
-
-There is not sufficient time to discuss the fundamentals of the R language in depth. Rather, these sessions aim to give you a flavour and the most useful software and libraries for interfacing with R.
+There is not sufficient time to discuss the fundamentals of the R language in depth. Rather, these sessions aim to give you a flavour of working with R, along with the most useful software and libraries.
 
 == What is R?
 
-R is a free, open statistical programming language and environment. Released as open source software as part of a research project in 1995, for some time R was the preserve of academics. From 2010s onwards, with the advent of _Big Data_ and new sub-disciplines such as _Data Science_, R enjoyed rapid growth and is used increasingly outside of academia, by organisations such as Google [https://research.google.com/pubs/pub37483.html[example]], Facebook [http://flowingdata.com/2010/12/13/facebook-worldwide-friendships-mapped/[example]], Twitter [https://blog.twitter.com/official/en_us/a/2013/the-geography-of-tweets.html[example]], New York Times [http://www.nytimes.com/interactive/2012/05/05/sports/baseball/mariano-rivera-and-his-peers.html?ref=baseballexample[example]], BBC [https://bbc.github.io/rcookbook/[example]] and many more.
+R is a free, open statistical programming language and environment. Released as open source software as part of a research project in 1995, for some time R was the preserve of academics. From 2010s onwards, R enjoyed rapid growth and is used increasingly outside of academia, by organisations such as Google [https://research.google.com/pubs/pub37483.html[example]], Facebook [http://flowingdata.com/2010/12/13/facebook-worldwide-friendships-mapped/[example]], Twitter [https://blog.twitter.com/official/en_us/a/2013/the-geography-of-tweets.html[example]], New York Times [http://www.nytimes.com/interactive/2012/05/05/sports/baseball/mariano-rivera-and-his-peers.html?ref=baseballexample[example]], BBC [https://bbc.github.io/rcookbook/[example]] and many more.
 
 Rather than simply a free alternative to proprietary statistical analysis software such as SPSS, R is a programming language in and of itself and can be used for:
 
-* Data Visualization design: https://www.rgs.org/geography/geovisualisation/voting-patterns-in-the-2019-general-election/?utm_source=Twitter&utm_medium=social&utm_campaign=SocialSignIn[2019 General Election DataVis] | https://threadreaderapp.com/thread/1317019462453895168.html[Covid-19 DataVis]
 
-* Developing interactive (visualization) software:  https://gehlenborglab.shinyapps.io/upsetr/[UpSet]
+* As a GIS: https://r.geocompx.org/[Geocomputation with R]
 
-* As a GIS: http://robinlovelace.net/geocompr/[Geocomp with R]
+* Data visualization analysis and design: https://vis4sds.github.io/vis4sds/[Visualization for Social Data Science]
 
-* As a word processor / web publisher: http://rmarkdown.rstudio.com/gallery.html[R Markdown]
+* As a word processor / web publisher: e.g. https://quarto.org/[Quarto]
 
 
 == Why R?
@@ -74,7 +68,7 @@ Second, with such a large community, there are numerous expert R users who thems
 
 [{aside}]
 --
-An R package is a bundle of code, data and documentation, usually hosted centrally on the CRAN (Comprehensive R Archive Network). A particularly important, though very recent, set of packages is the http://www.tidyverse.org[tidyverse]: a set of libraries authored mainly by http://hadley.nz[Hadley Wickham], which share a common underlying philosophy, syntax and documentation.
+An R package is a bundle of code, data and documentation, usually hosted centrally on the CRAN (Comprehensive R Archive Network). A particularly important set of packages is the http://www.tidyverse.org[tidyverse]: a set of libraries authored mainly by http://hadley.nz[Hadley Wickham], which share a common underlying philosophy, syntax and documentation.
 --
 
 === R supports **modern** data analysis workflows
@@ -86,8 +80,6 @@ ____
 
 In recent years there has been much introspection around how science works -- around how statistical claims are made from reasoning over evidence. This came on the back of, amongst other things, a high profile paper published in http://science.sciencemag.org/content/349/6251/aac4716[Science], which found that of 100 recent peer-reviewed psychology experiments, the findings of only 39 could be replicated. The upshot is that researchers must now make every possible effort to make their work transparent. In this setting, traditional data analysis software that support point-and-click interaction is unhelpful; it would be tedious to make notes describing all interactions with, for example, SPSS. As a declarative programming language, however, it is very easy to provide such a provenance trail for your workflows in R since this necessarily exists in your analysis scripts.
 
-
-Concerns around the _reproducibility crisis_ are not simply a function of transparency in methodology and research design. Rather, they relate to a culture and incentive structure whereby scientific claims are conferred with authority when reported within the (slightly backwards) logic of Null Hypothesis Significance Testing (NHST) and _p-values_. This isn't a statistics session, but for an accessible read on the phenomenon of _p-hacking_ (with interactive graphic) see https://fivethirtyeight.com/features/science-isnt-broken/#part1[this article] from the excellent http://fivethirtyeight.com[FiveThirtyEight] website. Again, the upshot of all this introspection is a rethinking of the way in which Statistics is taught in schools and universities, with greater emphasis on understanding through computational approaches rather than traditional equations, formulas and probability tables. Where does R fit within this? Simply put: R is far better placed than traditional software tools and point-and-click paradigms for supporting computational approaches to statistics -- with a set of methods and libraries for performing simulations and permutation-based tests.
 
 == Task 1. Get familiar with the R and RStudio environment
 
@@ -138,14 +130,14 @@ The `base` package is core and native to R. Unlike all other packages, it does n
 
 === Install some packages
 
-In these introductory sessions, you'll be using a collection of _packages_ that form part of the so-called _tidyverse_. Do read some of the documentation provided from the http://www.tidyverse.org[project website] to learn more around its philosophy. The packages together provide a very intuitive means of interacting with R and support  analysis tasks that form most http://r4ds.had.co.nz/introduction.html[Data Science workflows].
+In these introductory sessions, you'll be using a collection of _packages_ that form part of the so-called _tidyverse_. Do read some of the documentation provided from the _tidyverse_ http://www.tidyverse.org[project website] to learn more around its philosophy. The packages together provide a very intuitive means of interacting with R and support  analysis tasks that form most data science workflows (see https://r4ds.hadley.nz/intro.html[Wickham et al. 2023]).
 
 There are two steps to making packages available in your working environment: `install.packages(<package-name>)` downloads the named package from a repository, `library(<package-name>)` makes the package available in your current session.
 
 
 === Read in some data
 
-The sessions will cover a topic with which you're no doubt familiar: the UK's referendum vote on membership of the EU. You'll start by exploring the results data published at Local Authority level and made available in `.csv` form by https://www.electoralcommission.org.uk[The Elecctoral Commission]. You'll do so using the `readr` package (part of the _tidyverse_).
+The sessions will cover a topic with which you may be familiar: the UK's referendum vote on membership of the EU. You'll start by exploring the results data published at Local Authority level and made available in `.csv` form by https://www.electoralcommission.org.uk[The Elecctoral Commission]. You'll do so using the `readr` package (part of the _tidyverse_).
 
 [source]
 --
@@ -182,7 +174,7 @@ referendum_data <- read_csv("https://www.electoralcommission.org.uk/sites/defaul
 Instructions:: In the editor pane of RStudio write the code and comments in the block above. Execute by clicking `run` or `cmd+r` (Mac) `ctr+r` (Windows). Then save the R script with an appropriate name like  `brexit_analysis.R`.
 --
 
-Notice that the results data now appears under the `Data` field of the _Environment_ pane. It is stored as a _data frame_ -- a spreadsheet-like representation where rows correspond to individual observations and columns act as variables. You can inspect a data frame as you would a spreadsheet by typing `View(<dataframe-name>)` or by pointing and clicking on the named data frame in the _Environment_ pane. You can also get a quick view on a data frame's contents by typing `glimpse(<dataframe-name>)`.
+Notice that the results data now appears under the `Data` field of the _Environment_ pane. It is stored as a _data frame_ -- a spreadsheet-like representation where rows correspond to individual observations and columns are variables. You can inspect a data frame as you would a spreadsheet by typing `View(<dataframe-name>)` or by pointing and clicking on the named data frame in the _Environment_ pane. You can also get a quick view on a data frame's contents by typing `glimpse(<dataframe-name>)`.
 
 == Task 2. Perform some exploratory data analysis
 
@@ -192,14 +184,14 @@ Notice that the results data now appears under the `Data` field of the _Environm
 
 === Do some data wrangling
 
-_Data wrangling_ type operations are supported by functions that form the _dplyr_ package. Again, _dplyr_ is within the family of packages that comprise the _tidyverse_. Its functions have been named with verbs that neatly describe their purpose -- `filter()`, `select()`, `arrange()`, `group_by()`, `summarise()` and more. The pipe (`%>%`) is a particularly handy operator that allows calls to these functions to be chained together.
+_Data wrangling_ type operations are supported by functions that form the _dplyr_ package. Again, _dplyr_ is within the family of packages that comprise the _tidyverse_. Its functions are named with verbs that neatly describe their purpose -- `filter()`, `select()`, `arrange()`, `group_by()`, `summarise()` and more. The pipe (`%>%`, or `|>`) is a particularly handy operator that allows calls to these functions to be chained together.
 
 [source]
 --
 # Calculate the LA share of Leave vote by Region.
-region_summary <- referendum_data %>%
-      group_by(Region) %>%
-        summarise(share_leave=sum(Leave)/sum(Valid_Votes)) %>%
+region_summary <- referendum_data |>
+      group_by(Region) |>
+        summarise(share_leave=sum(Leave)/sum(Valid_Votes)) |>
            arrange(desc(share_leave))
 print(region_summary)
 --
@@ -207,7 +199,7 @@ print(region_summary)
 [{task}]
 --
 [horizontal]
-Instructions:: Add the code block to your R script and run only that block above. Run `View(region_summary)`. Given the result that's printed to your R Console, consider each line in the code block. Hopefully you will appreciate that chaining functions in this way (e.g. using `%>%`) enables you to construct quite expressive code.
+Instructions:: Add the code block to your R script and run only that block above. Run `View(region_summary)`. Given the result that's printed to your R Console, consider each line in the code block. Hopefully you will appreciate that chaining functions in this way (e.g. using `|>`) enables you to construct quite expressive code.
 
 [horizontal]
 Individual coding task:: Create two new variables in `referendum_data` -- one named `share_leave` and one named `margin_leave`. `share_leave` should express the Leave vote as a share of valid votes cast; `margin_leave` should contain the direction and size of margin of the Leave vote share. You will need to make use of the _dplyr_ function `mutate()`. Hint: to compute the size of margin, you will need to do some basic subtraction on the `share_leave` variable. Again, check that you have correctly created the variables by running `View(referendum_data)`.
@@ -225,13 +217,13 @@ image:images/plot_grammar_margin.png[]
 [source]
 --
 # Code for creating additional variables (from the individual coding task).
-referendum_data <- referendum_data %>%
+referendum_data <- referendum_data |>
                       mutate(share_leave=Leave/Valid_Votes,
                         margin_leave=share_leave-0.5 )
 
 # Create ordered bar chart of result ordered by LA.
-referendum_data %>%
-  filter(Area!="Gibraltar") %>%
+referendum_data |>
+  filter(Area!="Gibraltar") |>
   ggplot(aes(x=reorder(Area,-share_leave), y=margin_leave, fill=margin_leave))+
   geom_bar(stat="identity", width=1)+
   scale_fill_distiller(palette = 5, type="div", direction=1, guide="colourbar", limits=c(-0.3,0.3))+
@@ -254,7 +246,7 @@ Individual coding task:: Try experimenting with the `ggplot2` layers for yoursel
 [source]
 --
 # Code for simple bar chart of regional summary data.
-region_summary %>%
+region_summary |>
   ggplot(aes(x=Region, y=share_leave))+
   geom_bar(stat="identity")
 
@@ -262,7 +254,7 @@ region_summary %>%
 
 [{aside}]
 --
-For those used to working in point-and-click interfaces, generating code to describe graphics may seem unnecessary. However, once you learn how to construct graphics in this way -- once you learn the `ggplot2` grammar -- it is possible to very quickly generate relatively sophisticated exploratory graphics. That the grammar forces you to think more abstractly about data type and visual mapping is an important point. It introduces you to a key tenet of Information Visualization theory (http://esripress.esri.com/display/index.cfm?fuseaction=display&websiteID=190[Semiology of Graphics]) by stealth, but also encourages you to think in depth about your data, its structure and (since you're producing graphics) the insights that can be made from visualizing that structure.
+For those used to working in point-and-click interfaces, generating code to describe graphics may seem unnecessary. However, once you learn how to construct graphics in this way -- once you learn the `ggplot2` grammar -- it is possible to very quickly generate relatively sophisticated exploratory graphics. That the grammar forces you to think more abstractly about data type and visual mapping is an important point. It introduces you to a key tenet of Information Visualization theory by stealth, but also encourages you to think in depth about your data, its structure and (since you're producing graphics) the insights that can be made from visualizing that structure.
 --
 
 
@@ -285,18 +277,18 @@ data_gb <- st_read("http://www.roger-beecham.com/GEOG5022M/data/data_gb.geojson"
 [{task}]
 --
 [horizontal]
-Instructions:: Add the code block above to your R Script and run. This might take a while to execute. You should hopefully see in the _Data_ window a new data frame called `data_gb`.
+Instructions:: Add the code block above to your R Script and run. You should hopefully see in the _Data_ window a new data frame called `data_gb`.
 --
 
 
 [{aside}]
 --
-The data frame we've called `data_gb` is a special class of data frame to the extent that it contains a `list-col` variable (called `geometry`) in which are stored coordinates defining the spatial extent of Local Authority boundaries. Storing spatial information in this way is made possible via the _Simple Features_ (`sf`) package. The details of this package and of spatial data handling in R are beyond the scope of this introductory session. If you are keen to push on with R, it is worth exploring how the boundary data is loaded and linked to the Census attribute data by downloading the http://www.roger-beecham.com/GEOG5022/code/load_data.R[load_data.R] script. Also worth investigating is http://robinlovelace.net/geocompr/[Geocomputation with R], authored by http://robinlovelace.net[Robin Lovelace] (of Leeds) and others.
+The data frame we've called `data_gb` is a special class of data frame to the extent that it contains a `list-col` variable (called `geometry`) in which are stored coordinates defining the spatial extent of Local Authority boundaries. Storing spatial information in this way is made possible via the _Simple Features_ (`sf`) package. The details of this package and of spatial data handling in R are beyond the scope of this introductory session. If you are keen to push on with R, worth investigating is http://https://r.geocompx.org/[Geocomputation with R], authored by http://robinlovelace.net[Robin Lovelace] (of Leeds) and others.
 --
 
 === Explore spatial variation in the Leave:Remain vote
 
-In this section, you will analyse variation in EU referendum voting behaviour by Local Authority by generating various Choropleth maps. You will do so using the https://github.com/mtennekes/tmap[tmap] package, a user-friendly library that adopts a syntax similar to that of `ggplot2`.
+In this section, you will analyse variation in EU referendum voting behaviour by Local Authority by generating various choropleth maps. You will do so using the https://github.com/mtennekes/tmap[tmap] package, a user-friendly library that adopts a syntax similar to that of `ggplot2`.
 
 The general form of a _tmap_ specification:
 
@@ -327,7 +319,7 @@ tm_shape(data_gb) +
 Instructions:: Add the code block to your R script Run. You should see a map resembling that in the left of Figure 3.
 
 [horizontal]
-Individual coding task:: Create a new Choropleth that displays the _margin_ in favour of Leave:Remain (a spatial equivalent of Figure 4). You will need to affect the column (`col=`) to which `tm_fill()` maps, as well as the palette (`palette=`) that is used (it should be `"RdBu"`). Remember, if you need more information about  parameter options type `?<method-name>` into the R Console. Your map should look similar to the second map from the left in Figure 4.
+Individual coding task:: Create a new choropleth that displays the _margin_ in favour of Leave:Remain (a spatial equivalent of Figure 4). You will need to affect the column (`col=`) to which `tm_fill()` maps, as well as the palette (`palette=`) that is used (it should be `"RdBu"`). Remember, if you need more information about  parameter options type `?<method-name>` into the R Console. Your map should look similar to the second map from the left in Figure 4.
 
 [horizontal]
 Individual coding task::  An obvious problem with displaying social phenomena on a conventional map is that visual salience is given to rural areas where relatively few people live, with patterns in urban areas de-emphasised.  A partial solution is to split our map on the `Region` variable, resulting is a set of small multiple choropleths. This can be achieved with a call to `tm_facets(<"variable-name">)`. Adapt your code used to generate the choropleth map with this addition (e.g. `+ tm_facets("Region", free.coords=TRUE)`). You should end up with a map resembling the second from the right in Figure 4.
@@ -361,7 +353,7 @@ image:images/result_maps.png[]
 
 [{aside}]
 --
-A cool feature of the `tmap` library is that it has an interactive mode, providing http://wiki.openstreetmap.org/wiki/Slippy_Map[slippy map] type functionality. This can be set with `tmap_mode("view")`. Enter this line into the R _Console_ and then re-run the code that generates the Choropleth. To reset back to static mode use `tmap_mode("plot")`.
+A cool feature of the `tmap` library is that it has an interactive mode, providing http://wiki.openstreetmap.org/wiki/Slippy_Map[slippy map] type functionality. This can be set with `tmap_mode("view")`. Enter this line into the R _Console_ and then re-run the code that generates the choropleth. To reset back to static mode use `tmap_mode("plot")`.
 --
 
 == Task 4. Data challenge
@@ -394,20 +386,13 @@ Individual coding task::  Try writing commands to:
 
 == Further reading
 
-There is a burgeoning set of books, tutorials and blogs introducing R as an environment for applied data analysis. Detailed below are resources that are particularly relevant to the material and discussion introduced in this session.
+There are many books, tutorials and blogs introducing R as an environment for applied data analysis. Detailed below are resources that are particularly relevant to the material and discussion introduced in this session.
 
-=== R for data analysis
 
-* Healey, K. (2019), http://socviz.co/index.html[Data Visualization for Social Science: A practical introduction with R and ggplot2].  Excellent resource -- an engaging read that manages to integrate key Information Visualization theory and using real social science datasets.
+* Wickham, H., Çetinkaya-Rundel, M., Grolemund, G. (2023) "https://r4ds.hadley.nz/[R for Data Science], 2nd Edition", *Orielly*.
 
-* Kay, M. & Heer, J. (2016) https://github.com/mjskay/ranking-correlation[Analysis code for "Beyond Weber's Law: A Second Look at Ranking Visualizations of Correlation"]. Reading others' data analysis using R is often instructive. http://mjskay.com[Matt Kay], who has research interests in usable statistics and the reproducibility crisis, routinely publishes full data analysis code and documentation for his research papers.
+* Ismay, C. and Kim, A. (2020) "https://moderndive.com/[Statistical Inference via Data Science: A ModernDive into R and the Tidyverse]" *CRC Press*.
 
-* Lovelace, R., Nowosad, J. & Muenchow, J. (2019) http://robinlovelace.net/geocompr/[Geocomputation with R], CRC Press. Written by Robin Lovelace (University of Leeds) and others, this book comprehensively introduces spatial data handling in R. It is a great complement to _R for Data Science_ in that it draws on brand new libraries that support _Tidyverse_-style operations on spatial data.
+* Lovelace, R., Nowosad, J. & Muenchow, J. (2019) "https://r.geocompx.org/[Geocomputation with R]", *CRC Press*.
 
-* Wickham, H. & Grolemund, G. (2017), http://r4ds.had.co.nz[R for Data Science], O'Reilly. _The_ primer for doing data analysis with R. Hadley presents his _thesis_ of the data science workflow and illustrates how R and packages that form the _Tidyverse_ support this. It is both accessible and coherent and is highly recommended.
-
-=== New Statistics and the reproducibility crisis (non-essential)
-
-* Aschwanden, C. & King, R. (2015) https://fivethirtyeight.com/features/science-isnt-broken/[Science Isn’t Broken: It’s just a hell of a lot harder than we give it credit for]. A lovely take on the reproducibility crisis, published on http://fivethirtyeight.com[FiveThirtyEight] with an excellent interactive graphic.
-
-* Cumming, G. (2013) http://journals.sagepub.com/doi/abs/10.1177/0956797613504966[The New Statistics: Why and How]. Geoff Cumming exposes  common misconceptions associated with NHST and makes a case for a New Statistics, centred on estimation-based approaches.  Despite the pre-historic graphics, his https://www.youtube.com/watch?v=3FjoUOolOYQ[dance of the p-values] video is well worth a watch.
+* Beecham, R., (2023) "https://vis4sds.github.io/vis4sds/[Visualization for Social Data Science]", *CRC Press* (in-development).

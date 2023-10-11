@@ -45,12 +45,12 @@ The code below allows the share of Leave vote and demographic characteristics of
 [source]
 --
 # Calculate correlation coefficient of share Leave by degree-educated.
-data_gb %>%
-  st_drop_geometry() %>%
+data_gb |>
+  st_drop_geometry() |>
   summarise(cor(share_leave, degree_educated))
 
 # Generate scatterplot of share Leave by degree-educated.
-data_gb %>%
+data_gb |>
   ggplot(aes(x=share_leave, y=degree_educated)) +
   geom_point(colour="#525252",pch=21, alpha=0.8) +
   theme_bw()
@@ -87,9 +87,9 @@ To generate small multiples of the scatterplots in the previous section -- share
 
 [source]
 --
-data_gb %>%
-  st_drop_geometry() %>%
-  pivot_longer(cols=c(younger_adults:eu_born), names_to= "expl_var", values_to="la_prop") %>%
+data_gb |>
+  st_drop_geometry() |>
+  pivot_longer(cols=c(younger_adults:eu_born), names_to= "expl_var", values_to="la_prop") |>
   ggplot(aes(x=la_prop, y=share_leave))+
   geom_point(colour="#525252",pch=21)+
   facet_wrap(~expl_var, scales="free")+
@@ -123,7 +123,7 @@ As suggested visually and by its correlation coefficient (_r. -0.76_), there app
 [source]
 --
 # Add OLS regression line to the scatterplot.
-data_gb %>%
+data_gb |>
   ggplot(aes(x=degree_educated, y=share_leave))+
   geom_point(colour="#525252",pch=21)+
   geom_smooth(method = "lm", se = FALSE, colour="#525252")+
@@ -178,14 +178,14 @@ Ideally residuals should follow a https://en.wikipedia.org/wiki/Normal_distribut
 # Extract and store model residuals
 data_gb$resids_degrees = as_tibble(resid(lm_degree_educated))$value
 # Plot histogram of residuals.
-data_gb %>%
+data_gb |>
   ggplot(aes(resids_degrees))+
   geom_histogram()
 # Calculate maximum residual value to pin to colour scheme.
-max_resid <- data_gb %>% pull(resids_degrees) %>% abs() %>% max()
+max_resid <- data_gb |> pull(resids_degrees) |> abs() |> max()
 
 # Scatterplot coloured by residuals.
-data_gb %>%
+data_gb |>
     ggplot(aes(x=degree_educated, y=share_leave, fill=resids_degrees))+
     geom_point(colour="#525252",pch=21)+
     geom_smooth(method = "lm", se = FALSE, colour="#525252")+
@@ -194,7 +194,7 @@ data_gb %>%
 
 
 # Map coloured by residuals implemented in ggplot.
-data_gb %>%
+data_gb |>
   ggplot()+
   geom_sf(aes(fill=resids_degrees), size=.03, colour="#525252")+
   # For Region outlines
@@ -256,7 +256,7 @@ do_lineup <- function(data) {
   print(real)
 }
 # Do line-up on EW model
-do_lineup(data_gb %>% filter(Region!="Scotland") %>%  select(geometry, value=resids_degrees))
+do_lineup(data_gb |> filter(Region!="Scotland") |>  select(geometry, value=resids_degrees))
 --
 
 .Figure 4: Map LineUp on residuals from the EW-only model.
@@ -275,21 +275,21 @@ Individual coding task:: Explore relationships between the Leave vote and the 12
 
 == Optional aside for the interested R user
 
-As part of _Task 4_ you may have considered fitting univariate models separately for each of the candidate explanatory variables from the 2011 Census. To help with this, we can use new packages -- https://github.com/tidyverse/purrr[`purrr`] and https://github.com/tidyverse/broom[`broom`] -- again  written under the _Tidy_ data design philosophy.
+As part of _Task 4_ you may have considered fitting univariate models separately for each of the candidate explanatory variables from the 2011 Census. To help with this, we can use new packages -- https://github.com/tidyverse/purrr[`purrr`] and https://github.com/tidyverse/broom[`broom`] -- again written under the _tidyverse_ design philosophy.
 
 
 [source]
 --
 # Generate univariate models separately on each explanatory variable.
-univariate_models <- data_gb %>%
-  st_drop_geometry() %>%
-  select(c(lad15nm, share_leave), younger_adults:eu_born) %>%
-  pivot_longer(-c(share_leave, lad15nm), names_to="expl_var", values_to="la_prop") %>%
-  group_by(expl_var) %>%
+univariate_models <- data_gb |>
+  st_drop_geometry() |>
+  select(c(lad15nm, share_leave), younger_adults:eu_born) |>
+  pivot_longer(-c(share_leave, lad15nm), names_to="expl_var", values_to="la_prop") |>
+  group_by(expl_var) |>
   nest() %>%
   mutate(model=purrr::map(data, ~lm(share_leave ~ la_prop, data=.)),
-         tidy=purrr::map(model, broom::tidy)) %>%
-  unnest(tidy) %>%
+         tidy=purrr::map(model, broom::tidy)) |>
+  unnest(tidy) |>
   filter(term != "(Intercept)")
 
 
@@ -297,8 +297,8 @@ univariate_models <- data_gb %>%
 b1_sign <- c("#7b3294","#008837")
 
 # Plot regression coefficients from separate univariate models.
-univariate_models %>%
-  mutate(sign=ifelse(estimate>0,"pos","neg")) %>%
+univariate_models |>
+  mutate(sign=ifelse(estimate>0,"pos","neg")) |>
   ggplot(aes(x=reorder(expl_var,estimate), y=estimate))+
   geom_pointrange(aes(ymin=estimate-2*std.error, ymax = estimate+2*std.error,colour = factor(sign)),
                   position=position_dodge(.9))+
