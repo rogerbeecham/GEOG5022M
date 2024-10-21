@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="generator" content="Asciidoctor 2.0.23">
 <meta name="author" content="By">
 <title>GEOG5022 : Introduction to R II</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -141,7 +141,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -163,6 +163,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -328,7 +329,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -581,7 +582,6 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 </div>
 </div>
 </div>
-<iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/3cf4008f-f2b7-4db8-93e7-f99cb691b015?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
 </div>
 </div>
 <div class="sect1">
@@ -890,7 +890,7 @@ Instructions
 Individual coding task
 </td>
 <td class="hdlist2">
-<p>Generate a new data frame containing data for England &amp; Wales (EW) only. You will need to use the <code>filter()</code> function and the <code>Region</code> variable to do this. Then create an EW-only linear model regressing <em>degree-educated</em> on Leave. Make a note of the R-squared value for the EW-only model. Then generate a map and scatterplot of residuals using a visual grammar similar to that appearing in Figure 3. You may find Task 3 from yesterday useful. How are these residuals distributed around the regression line and across the country?</p>
+<p>Generate a new data frame containing data for England &amp; Wales (EW) only. You will need to use the <code>filter()</code> function and the <code>Region</code> variable to do this. Then create an EW-only linear model regressing <em>degree-educated</em> on Leave. Make a note of the R-squared value for the EW-only model. Then generate a map and scatterplot of residuals using a visual grammar similar to that appearing in Figure 3. You may find Task 3 from the previous session useful. How are these residuals distributed around the regression line and across the country?</p>
 </td>
 </tr>
 </table>
@@ -1024,16 +1024,16 @@ univariate_models |&gt;
 <div class="ulist">
 <ul>
 <li>
-<p>Beecham, R. et al. (2020) <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0229974">Regionally-structured explanations behind area-level populism: An update to recent ecological analyses</a>. PLoS One, 15(3): e0229974. <a href="https://github.com/rogerbeecham/update-ecological-analyses">code</a>.</p>
+<p>Beecham, R. et al. (2020) <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0229974">Regionally-structured explanations behind area-level populism: An update to recent ecological analyses</a>. PLoS One, 15(3): e0229974. <a href="https://github.com/rogerbeecham/update-ecological-analyses">code</a>. doi: <a href="https://doi.org/10.1371/journal.pone.0229974">10.1371/journal.pone.0229974</a>.</p>
 </li>
 <li>
-<p>Beecham, R. et al. (2018) <a href="http://www.josis.org/index.php/josis/article/view/377">Locally-varying explanations behind the United Kingdom&#8217;s vote to leave the United Kingdom</a>. <em>Journal of Spatial Information Science</em>, 16: 117-136.  <a href="https://github.com/rogerbeecham/brexit-analysis">code</a>.</p>
+<p>Beecham, R. et al. (2018) <a href="http://www.josis.org/index.php/josis/article/view/377">Locally-varying explanations behind the United Kingdom&#8217;s vote to leave the United Kingdom</a>. <em>Journal of Spatial Information Science</em>, 16: 117-136.  <a href="https://github.com/rogerbeecham/brexit-analysis">code</a>. doi: <a href="https://doi.org/10.5311/JOSIS.2018.16.377">10.5311/JOSIS.2018.16.377</a></p>
 </li>
 <li>
-<p>Beecham, R. et al. (2017) <a href="http://ieeexplore.ieee.org/document/7539286/">Map line-ups: effects of spatial structure on graphical inference</a>. <em>IEEE Transactions on Visualization &amp; Computer Graphics</em>, 23(1):391–400. We propose and evaluate through a large crowd-sourced experiment a particular approach to graphical inference testing using maps. Full data analysis code and talk is available at the <a href="https://www.gicentre.net/maplineups">paper website</a>.</p>
+<p>Beecham, R. et al. (2017) <a href="http://ieeexplore.ieee.org/document/7539286/">Map line-ups: effects of spatial structure on graphical inference</a>. <em>IEEE Transactions on Visualization &amp; Computer Graphics</em>, 23(1):391–400. We propose and evaluate through a large crowd-sourced experiment a particular approach to graphical inference testing using maps. Full data analysis code and talk is available at the <a href="https://www.gicentre.net/maplineups">paper website</a>. doi: <a href="https://doi.org/10.1109/TVCG.2016.2598862">10.1109/TVCG.2016.2598862</a></p>
 </li>
 <li>
-<p>Wickham, H. et al. (2010) <a href="http://ieeexplore.ieee.org/document/5613434/">Graphical Inference for Infovis</a>. <em>IEEE Transactions on Visualization and Computer Graphics</em>, 16(6):973–979. Hadley Wickham&#8217;s seminal piece on graphical inference&#8201;&#8212;&#8201;well worth a read, if only for his erudite description of statistical testing and NHST.</p>
+<p>Wickham, H. et al. (2010) <a href="http://ieeexplore.ieee.org/document/5613434/">Graphical Inference for Infovis</a>. <em>IEEE Transactions on Visualization and Computer Graphics</em>, 16(6):973–979. Hadley Wickham&#8217;s seminal piece on graphical inference&#8201;&#8212;&#8201;well worth a read, if only for his erudite description of statistical testing and NHST. doi: <a href="https://doi.org/10.1109">10.1109/TVCG.2010.161</a></p>
 </li>
 </ul>
 </div>
@@ -1042,7 +1042,7 @@ univariate_models |&gt;
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-10-11 13:19:17 +0100
+Last updated 2024-10-21 15:33:19 +0100
 </div>
 </div>
 <script type="text/x-mathjax-config">

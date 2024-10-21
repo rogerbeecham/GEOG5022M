@@ -12,7 +12,7 @@ By <https://www.roger-beecham.com[Roger Beecham]>
 ****
 This session introduces a key technology for doing data analysis used widely in academia and industry: R. As well as learning what R is -- its history and use -- you will begin to perform some exploratory analysis in R on a real (spatial) dataset. The interface through which you'll interact with R is called RStudio. Both R and RStudio are free to use.
 
-This first session provides much introductory material and discussion -- it requires some reading. Tomorrow's session will assume greater knowledge/familiarity and will be more task focussed.
+This first session provides much introductory material and discussion -- it requires some reading. The second session will assume greater knowledge/familiarity and will be more task focussed.
 
 By the end of this session you should be able to:
 
@@ -28,15 +28,6 @@ By the end of this session you should be able to:
 
 [[introduction]]
 == Introduction
-
-++++
-<iframe width="640" height="360"
-  src="https://web.microsoftstream.com/embed/video/b4095e0e-e3cc-4b9c-9ab6-63669d5687d7?autoplay=false&amp;showinfo=true"
-  allowfullscreen
-  style="border:none;">
-</iframe>
-++++
-
 
 For the next two sessions we'll be learning about a key technology for doing spatial data analysis: https://www.r-project.org[R]. It has origins in academia, but is now global in reach and used by an increasingly impressive number of organisations.
 
@@ -82,10 +73,6 @@ In recent years there has been much introspection around how science works -- ar
 
 
 == Task 1. Get familiar with the R and RStudio environment
-
-++++
-<iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/b7b18a20-bbd1-4f27-8474-a076f5c82673?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
-++++
 
 === Open RStudio
 
@@ -178,9 +165,6 @@ Notice that the results data now appears under the `Data` field of the _Environm
 
 == Task 2. Perform some exploratory data analysis
 
-++++
-<iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/4a00d3b3-5a9c-404f-9b26-5977ee3b9a2f?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
-++++
 
 === Do some data wrangling
 
@@ -260,9 +244,6 @@ For those used to working in point-and-click interfaces, generating code to desc
 
 == Task 3. Perform some exploratory spatial data analysis
 
-++++
-<iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/5fd28b89-a7bc-4eb6-a8a5-47f2b87cf42c?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
-++++
 
 === Load in some spatial (and other attribute) data
 

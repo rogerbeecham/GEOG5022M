@@ -22,9 +22,7 @@ By the end of this session you should be able to:
 * learn about permutation-based approaches to statistical testing
 
 ****
-++++
-<iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/3cf4008f-f2b7-4db8-93e7-f99cb691b015?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
-++++
+
 
 == Task 1. Explore bivariate relationships using correlation
 
@@ -219,7 +217,7 @@ image:images/residuals_explained.png[]
 [horizontal]
 Instructions:: Run the code in the block above to generate a scatterplot and map of residuals.
 
-Individual coding task:: Generate a new data frame containing data for England & Wales (EW) only. You will need to use the `filter()` function and the `Region` variable to do this. Then create an EW-only linear model regressing _degree-educated_ on Leave. Make a note of the R-squared value for the EW-only model. Then generate a map and scatterplot of residuals using a visual grammar similar to that appearing in Figure 3. You may find Task 3 from yesterday useful. How are these residuals distributed around the regression line and across the country?
+Individual coding task:: Generate a new data frame containing data for England & Wales (EW) only. You will need to use the `filter()` function and the `Region` variable to do this. Then create an EW-only linear model regressing _degree-educated_ on Leave. Make a note of the R-squared value for the EW-only model. Then generate a map and scatterplot of residuals using a visual grammar similar to that appearing in Figure 3. You may find Task 3 from the previous session useful. How are these residuals distributed around the regression line and across the country?
 --
 
 === Study spatial autocorrelation in residuals
@@ -321,7 +319,7 @@ image:images/coefficients.png[coefficients,600]
 
 == Further reading (non-essential)
 
-* Beecham, R. et al. (2020) https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0229974[Regionally-structured explanations behind area-level populism: An update to recent ecological analyses]. PLoS One, 15(3): e0229974. https://github.com/rogerbeecham/update-ecological-analyses[code].
-* Beecham, R. et al. (2018) http://www.josis.org/index.php/josis/article/view/377[Locally-varying explanations behind the United Kingdom's vote to leave the United Kingdom]. _Journal of Spatial Information Science_, 16: 117-136.  https://github.com/rogerbeecham/brexit-analysis[code].
-* Beecham, R. et al. (2017) http://ieeexplore.ieee.org/document/7539286/[Map line-ups: effects of spatial structure on graphical inference]. _IEEE Transactions on Visualization & Computer Graphics_, 23(1):391–400. We propose and evaluate through a large crowd-sourced experiment a particular approach to graphical inference testing using maps. Full data analysis code and talk is available at the https://www.gicentre.net/maplineups[paper website].
-* Wickham, H. et al. (2010) http://ieeexplore.ieee.org/document/5613434/[Graphical Inference for Infovis]. _IEEE Transactions on Visualization and Computer Graphics_, 16(6):973–979. Hadley Wickham's seminal piece on graphical inference -- well worth a read, if only for his erudite description of statistical testing and NHST.
+* Beecham, R. et al. (2020) https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0229974[Regionally-structured explanations behind area-level populism: An update to recent ecological analyses]. PLoS One, 15(3): e0229974. https://github.com/rogerbeecham/update-ecological-analyses[code]. doi: https://doi.org/10.1371/journal.pone.0229974[10.1371/journal.pone.0229974].
+* Beecham, R. et al. (2018) http://www.josis.org/index.php/josis/article/view/377[Locally-varying explanations behind the United Kingdom's vote to leave the United Kingdom]. _Journal of Spatial Information Science_, 16: 117-136.  https://github.com/rogerbeecham/brexit-analysis[code]. doi: https://doi.org/10.5311/JOSIS.2018.16.377[10.5311/JOSIS.2018.16.377]
+* Beecham, R. et al. (2017) http://ieeexplore.ieee.org/document/7539286/[Map line-ups: effects of spatial structure on graphical inference]. _IEEE Transactions on Visualization & Computer Graphics_, 23(1):391–400. We propose and evaluate through a large crowd-sourced experiment a particular approach to graphical inference testing using maps. Full data analysis code and talk is available at the https://www.gicentre.net/maplineups[paper website]. doi: https://doi.org/10.1109/TVCG.2016.2598862[10.1109/TVCG.2016.2598862]
+* Wickham, H. et al. (2010) http://ieeexplore.ieee.org/document/5613434/[Graphical Inference for Infovis]. _IEEE Transactions on Visualization and Computer Graphics_, 16(6):973–979. Hadley Wickham's seminal piece on graphical inference -- well worth a read, if only for his erudite description of statistical testing and NHST. doi: https://doi.org/10.1109[10.1109/TVCG.2010.161]
