@@ -246,9 +246,11 @@ do_lineup <- function(data) {
   }
   # Draw maps
   map <- tm_shape(data) +
-    tm_fill(c("p1","p2","p3","p4","p5","p6","p7","p8","p9"),style="cont", palette="RdBu")+
-    tm_borders(col="gray80", lwd=1)+
-    tm_layout(legend.show=FALSE, frame=FALSE, title.size = 0.8,title.position = c("right", "bottom"))
+    tm_polygons(
+      fill=c("p1","p2","p3","p4","p5","p6","p7","p8","p9"),
+      fill.scale = tm_scale_continuous(values="brewer.rd_bu"),
+      col="gray80", 
+      lwd=1) +
     tm_layout(legend.show=FALSE, frame=FALSE)
   print(map)
   print(real)

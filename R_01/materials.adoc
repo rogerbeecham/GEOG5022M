@@ -274,24 +274,17 @@ In this section, you will analyse variation in EU referendum voting behaviour by
 The general form of a _tmap_ specification:
 
 * A data frame containing a geometry field `(sfc_MULTIPOLYGON)` must be supplied to `tm_shape()`.
-* To `tm_fill()`, we identify the variable values on which polygons should be coloured as well as information such as the colour mapping (sequential, diverging or continuous) and palette to use.
-* `tm_layout()` provides control over titles, legends etc.
+* To `tm_polygons()`, we identify the variable values on which polygons should be coloured as well as information such as the colour mapping (sequential, diverging or continuous) and palette to use.
 
 [source]
 --
 # Generate a choropleth displaying share of leave vote by Local Authority area.
 tm_shape(data_gb) +
-  tm_fill(col="share_leave", style="cont", size=0.2, id="geo_label", palette="Blues", title="") +
-  tm_borders(col="#bdbdbd", lwd=0.5) +
-  tm_layout(
-    title="LA share of Leave vote",
-    title.snap.to.legend=TRUE,
-    title.size=0.8,
-    legend.text.size=0.6,
-    title.position = c("right", "center"),
-    legend.position = c("right","center"),
-    frame=FALSE,
-    legend.outside=TRUE)
+  tm_polygons(
+    fill="share_leave", 
+    hover="lad15nm", 
+    fill.scale = tm_scale_continuous(values = "brewer.blues"),
+    lwd=0.2)
 --
 
 [{task}]
@@ -300,7 +293,7 @@ tm_shape(data_gb) +
 Instructions:: Add the code block to your R script Run. You should see a map resembling that in the left of Figure 3.
 
 [horizontal]
-Individual coding task:: Create a new choropleth that displays the _margin_ in favour of Leave:Remain (a spatial equivalent of Figure 4). You will need to affect the column (`col=`) to which `tm_fill()` maps, as well as the palette (`palette=`) that is used (it should be `"RdBu"`). Remember, if you need more information about  parameter options type `?<method-name>` into the R Console. Your map should look similar to the second map from the left in Figure 4.
+Individual coding task:: Create a new choropleth that displays the _margin_ in favour of Leave:Remain (a spatial equivalent of Figure 4). You will need to affect the column to which `tm_polygons()` maps fill colour (`fill=`), as well as a colour scale (`fill.scale=`) that is used (it should be `"brewer.blues"`). Remember, if you need more information about  parameter options type `?<method-name>` into the R Console. Your map should look similar to the second map from the left in Figure 4.
 
 [horizontal]
 Individual coding task::  An obvious problem with displaying social phenomena on a conventional map is that visual salience is given to rural areas where relatively few people live, with patterns in urban areas de-emphasised.  A partial solution is to split our map on the `Region` variable, resulting is a set of small multiple choropleths. This can be achieved with a call to `tm_facets(<"variable-name">)`. Adapt your code used to generate the choropleth map with this addition (e.g. `+ tm_facets("Region", free.coords=TRUE)`). You should end up with a map resembling the second from the right in Figure 4.
@@ -376,4 +369,4 @@ There are many books, tutorials and blogs introducing R as an environment for ap
 
 * Lovelace, R., Nowosad, J. & Muenchow, J. (2019) "https://r.geocompx.org/[Geocomputation with R]", *CRC Press*.
 
-* Beecham, R., (2023) "https://vis4sds.github.io/vis4sds/[Visualization for Social Data Science]", *CRC Press* (in-development).
+* Beecham, R., (2025) "https://vis4sds.github.io/vis4sds/[Visualization for Social Data Science]", *CRC Press*.
