@@ -88,7 +88,7 @@ image:images/r_studio.png[]
 Instructions:: Open RStudio. Click `File` -> `New File` -> `R Script`.
 --
 
-You should see a set of windows roughly similar to those in the figure above. The top left pane is the _Code Editor_. This is where you'll write, organise and comment R code for execution. Code snippets can be executed using `Run` at the top of the RStudio pane or typing `cmd R` (Mac) `ctr R` (Windows).  Below this, in the bottom left pane is the _R Console_, in which you write and execute commands directly. To the top right is a pane with the tabs _Environment_ and _History_. The purpose of these will soon be clear. In the bottom right is a pane for navigating through project directories (_Files_), displaying _Plots_, details of installed and loaded _Packages_ and documentation on the functions and packages you'll use (_Help_).
+You should see a set of windows roughly similar to those in the figure above. The top left pane is the _Code Editor_. This is where you'll write, organise and comment R code for execution. Code snippets can be executed using `Run` at the top of the RStudio pane or typing `cmd Enter` (Mac) `ctr Enter` (Windows).  Below this, in the bottom left pane is the _R Console_, in which you write and execute commands directly. To the top right is a pane with the tabs _Environment_ and _History_. The purpose of these will soon be clear. In the bottom right is a pane for navigating through project directories (_Files_), displaying _Plots_, details of installed and loaded _Packages_ and documentation on the functions and packages you'll use (_Help_).
 
 === Type some console commands
 
@@ -124,7 +124,7 @@ There are two steps to making packages available in your working environment: `i
 
 === Read in some data
 
-The sessions will cover a topic with which you may be familiar: the UK's referendum vote on membership of the EU. You'll start by exploring the results data published at Local Authority level and made available in `.csv` form by https://www.electoralcommission.org.uk[The Elecctoral Commission]. You'll do so using the `readr` package (part of the _tidyverse_).
+The sessions will cover a topic with which you may be familiar: the UK's referendum vote on membership of the EU. You'll start by exploring the results data published at Local Authority level and made available in `.csv` form by https://www.electoralcommission.org.uk[The Electoral Commission]. You'll do so using the `readr` package (part of the _tidyverse_).
 
 [source]
 --
@@ -158,7 +158,7 @@ referendum_data <- read_csv("https://www.electoralcommission.org.uk/sites/defaul
 [{task}]
 --
 [horizontal]
-Instructions:: In the editor pane of RStudio write the code and comments in the block above. Execute by clicking `run` or `cmd+r` (Mac) `ctr+r` (Windows). Then save the R script with an appropriate name like  `brexit_analysis.R`.
+Instructions:: In the editor pane of RStudio write the code and comments in the block above. Execute by clicking `run` or `cmd+Enter` (Mac) `ctr+Enter` (Windows). Then save the R script with an appropriate name like  `brexit_analysis.R`.
 --
 
 Notice that the results data now appears under the `Data` field of the _Environment_ pane. It is stored as a _data frame_ -- a spreadsheet-like representation where rows correspond to individual observations and columns are variables. You can inspect a data frame as you would a spreadsheet by typing `View(<dataframe-name>)` or by pointing and clicking on the named data frame in the _Environment_ pane. You can also get a quick view on a data frame's contents by typing `glimpse(<dataframe-name>)`.
@@ -212,9 +212,9 @@ referendum_data |>
   geom_bar(stat="identity", width=1)+
   scale_fill_distiller(palette = 5, type="div", direction=1, guide="colourbar", limits=c(-0.3,0.3))+
   scale_x_discrete(breaks=c("Lambeth","Slough","Boston")) +
-  geom_hline(aes(yintercept=0))+
+  geom_hline(yintercept=0)+
   theme_classic()+
-  xlab("LAs by Leave (asc)")+
+  xlab("LAs by Leave (desc)")+
   ylab("Margin Leave/Remain")
 --
 
@@ -264,7 +264,7 @@ Instructions:: Add the code block above to your R Script and run. You should hop
 
 [{aside}]
 --
-The data frame we've called `data_gb` is a special class of data frame to the extent that it contains a `list-col` variable (called `geometry`) in which are stored coordinates defining the spatial extent of Local Authority boundaries. Storing spatial information in this way is made possible via the _Simple Features_ (`sf`) package. The details of this package and of spatial data handling in R are beyond the scope of this introductory session. If you are keen to push on with R, worth investigating is http://https://r.geocompx.org/[Geocomputation with R], authored by http://robinlovelace.net[Robin Lovelace] (of Leeds) and others.
+The data frame we've called `data_gb` is a special class of data frame to the extent that it contains a `list-col` variable (called `geometry`) in which are stored coordinates defining the spatial extent of Local Authority boundaries. Storing spatial information in this way is made possible via the _Simple Features_ (`sf`) package. The details of this package and of spatial data handling in R are beyond the scope of this introductory session. If you are keen to push on with R, worth investigating is https://r.geocompx.org[Geocomputation with R], authored by http://robinlovelace.net[Robin Lovelace] (of Leeds) and others.
 --
 
 === Explore spatial variation in the Leave:Remain vote
@@ -290,13 +290,13 @@ tm_shape(data_gb) +
 [{task}]
 --
 [horizontal]
-Instructions:: Add the code block to your R script Run. You should see a map resembling that in the left of Figure 3.
+Instructions:: Add the code block to your R script Run. You should see a map resembling that in the left of Figure 4.
 
 [horizontal]
-Individual coding task:: Create a new choropleth that displays the _margin_ in favour of Leave:Remain (a spatial equivalent of Figure 4). You will need to affect the column to which `tm_polygons()` maps fill colour (`fill=`), as well as a colour scale (`fill.scale=`) that is used (it should be `"brewer.blues"`). Remember, if you need more information about  parameter options type `?<method-name>` into the R Console. Your map should look similar to the second map from the left in Figure 4.
+Individual coding task:: Create a new choropleth that displays the _margin_ in favour of Leave:Remain (a spatial equivalent of Figure 3). You will need to affect the column to which `tm_polygons()` maps fill colour (`fill=`), as well as a colour scale (`fill.scale=`) that is used (it should be `"brewer.rd_bu, midpoint=0"`). Remember, if you need more information about  parameter options type `?<method-name>` into the R Console. Your map should look similar to the second map from the left in Figure 4.
 
 [horizontal]
-Individual coding task::  An obvious problem with displaying social phenomena on a conventional map is that visual salience is given to rural areas where relatively few people live, with patterns in urban areas de-emphasised.  A partial solution is to split our map on the `Region` variable, resulting is a set of small multiple choropleths. This can be achieved with a call to `tm_facets(<"variable-name">)`. Adapt your code used to generate the choropleth map with this addition (e.g. `+ tm_facets("Region", free.coords=TRUE)`). You should end up with a map resembling the second from the right in Figure 4.
+Individual coding task::  An obvious problem with displaying social phenomena on a conventional map is that visual salience is given to rural areas where relatively few people live, with patterns in urban areas de-emphasised.  A partial solution is to split our map on the `Region` variable, resulting in a set of small multiple choropleths. This can be achieved with a call to `tm_facets(<"variable-name">)`. Adapt your code used to generate the choropleth map with this addition (e.g. `+ tm_facets("Region", free.coords=TRUE)`). You should end up with a map resembling the second from the right in Figure 4.
 
 [horizontal]
 Instructions:: An alternative and more direct approach to dealing with the salience bias of rural areas is through a https://en.wikipedia.org/wiki/Cartogram[cartogram]. Cartograms allow spatial units (Local Authorities in this case) to be sized according to the phenomena of interest. Copy the code block below to create a cartogram similar to that presented in the right of Figure 4.

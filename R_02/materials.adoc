@@ -165,7 +165,7 @@ If you're new to regression and the output of the `summary()` function means not
 
 === Inspect residuals from the univariate model
 
-The regression coefficients that appear after calls to `summary(<model-object>)` simply describe the regression line -- and the regression line tells us, on average, what the Leave vote would be if it were entirely dependent on the proportion of the population educated to degree-level.  Since there is a strong negative association between Leave and _degree-educated_, the _slope_ of the regression line is negative. The coefficient for _degree-educated_ (`Estimate Std. -0.937`) can be interpreted as: a one unit increase in the _degree-educated_ population in a LA has the effect of decreasing the Leave vote by c.0.94 units.
+The regression coefficients that appear after calls to `summary(<model-object>)` simply describe the regression line -- and the regression line tells us, on average, what the Leave vote would be if it were entirely dependent on the proportion of the population educated to degree-level.  Since there is a strong negative association between Leave and _degree-educated_, the _slope_ of the regression line is negative. The coefficient for _degree-educated_ (`Estimate Std. -0.937`) can be interpreted as: a one percentage point increase in the _degree-educated_ population in a LA is assicuared with a c.0.94 percentage point lower Leave share.
 
 But how successful is this model? To what extent is variation in the Leave vote entirely a function of variation in the proportion of people in LAs educated to _degree-level_? It is possible to quantify how well the model fits the data, and importantly _where_ it fits the data, by calculating _residuals_. Residuals are simply the difference between an observed value and the value expected by the model. The coefficient of determination (R-squared), a quantity you may have encountered earlier in the term, is simply the sum of squared residuals divided by the squared sum of total residuals (or variance). It tells us how much of the variation in the outcome can be accounted for by the model. In this case 57% of variation in the observed Leave vote can be explained with variation in the _degree-educated_ variable  (see output screen).
 
@@ -205,7 +205,7 @@ data_gb |>
   theme_bw()
 --
 
-As can be seen from the histogram, the distribution of residuals is closer to log normal. Inspecting the scatterplot, there is a group of LAs with observed Leave vote shares much lower than expected by our model. Plotting them spatially, we find that they are overwhelmingly concentrated in Scotland. Given the very clear break with Scotland and the rest of the country, there is a strong argument for developing a separate model for England & Wales. Rather than a smooth spatial process, which we sometimes see in maps of residuals, Scotland is categorically distinct.
+As can be seen from the histogram, the distribution of residuals is negatively skewed. Inspecting the scatterplot, there is a group of LAs with observed Leave vote shares much lower than expected by our model. Plotting them spatially, we find that they are overwhelmingly concentrated in Scotland. Given the very clear break with Scotland and the rest of the country, there is a strong argument for developing a separate model for England & Wales. Rather than a smooth spatial process, which we sometimes see in maps of residuals, Scotland is categorically distinct.
 
 .Figure 3: Residuals and R2 explained.
 --
@@ -217,7 +217,7 @@ image:images/residuals_explained.png[]
 [horizontal]
 Instructions:: Run the code in the block above to generate a scatterplot and map of residuals.
 
-Individual coding task:: Generate a new data frame containing data for England & Wales (EW) only. You will need to use the `filter()` function and the `Region` variable to do this. Then create an EW-only linear model regressing _degree-educated_ on Leave. Make a note of the R-squared value for the EW-only model. Then generate a map and scatterplot of residuals using a visual grammar similar to that appearing in Figure 3. You may find Task 3 from the previous session useful. How are these residuals distributed around the regression line and across the country?
+Individual coding task:: Generate a new data frame containing data for England & Wales (EW) only. You will need to use the `filter()` function and the `Region` variable to do this. Then create an EW-only linear model regressing Leave on _degree-educated_. Make a note of the R-squared value for the EW-only model. Then generate a map and scatterplot of residuals using a visual grammar similar to that appearing in Figure 3. You may find Task 3 from the previous session useful. How are these residuals distributed around the regression line and across the country?
 --
 
 === Study spatial autocorrelation in residuals
@@ -233,7 +233,7 @@ An alternative approach is to perform such a test visually -- comparing the obse
 # Function for generating map line-up test
 do_lineup <- function(data) {
   real <- sample(1:9,1)
-  for(i in 1:12) {
+  for(i in 1:9) {
     if(i==real) {
       data <- cbind(data, data$value)
       colnames(data)[i+1] <- paste("p", i, sep = "")
@@ -259,7 +259,7 @@ do_lineup <- function(data) {
 do_lineup(data_gb |> filter(Region!="Scotland") |>  select(geometry, value=resids_degrees))
 --
 
-.Figure 4: Map LineUp on residuals from the EW-only model.
+.Figure 5: Map LineUp on residuals from the EW-only model.
 --
 image:images/lineup.png[]
 --
@@ -269,7 +269,7 @@ image:images/lineup.png[]
 [{task}]
 --
 [horizontal]
-Individual coding task:: Explore relationships between the Leave vote and the 12 Census variables held in the `data_gb` data frame. You may choose to generate scatterplots showing _share Leave_ against these explanatory variables before building separate linear regression models for each Census variable. You may also wish to investigate (perhaps visually initially) wether relationships between _share Leave_ and Census variables differ for different parts of the country.
+Individual coding task:: Explore relationships between the Leave vote and the 12 Census variables held in the `data_gb` data frame. You may choose to generate scatterplots showing _share Leave_ against these explanatory variables before building separate linear regression models for each Census variable. You may also wish to investigate (perhaps visually initially) whether relationships between _share Leave_ and Census variables differ for different parts of the country.
 --
 
 
@@ -322,6 +322,6 @@ image:images/coefficients.png[coefficients,600]
 == Further reading (non-essential)
 
 * Beecham, R. et al. (2020) https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0229974[Regionally-structured explanations behind area-level populism: An update to recent ecological analyses]. PLoS One, 15(3): e0229974. https://github.com/rogerbeecham/update-ecological-analyses[code]. doi: https://doi.org/10.1371/journal.pone.0229974[10.1371/journal.pone.0229974].
-* Beecham, R. et al. (2018) http://www.josis.org/index.php/josis/article/view/377[Locally-varying explanations behind the United Kingdom's vote to leave the United Kingdom]. _Journal of Spatial Information Science_, 16: 117-136.  https://github.com/rogerbeecham/brexit-analysis[code]. doi: https://doi.org/10.5311/JOSIS.2018.16.377[10.5311/JOSIS.2018.16.377]
+* Beecham, R. et al. (2018) http://www.josis.org/index.php/josis/article/view/377[Locally-varying explanations behind the United Kingdom's vote to leave the European Union]. _Journal of Spatial Information Science_, 16: 117-136.  https://github.com/rogerbeecham/brexit-analysis[code]. doi: https://doi.org/10.5311/JOSIS.2018.16.377[10.5311/JOSIS.2018.16.377]
 * Beecham, R. et al. (2017) http://ieeexplore.ieee.org/document/7539286/[Map line-ups: effects of spatial structure on graphical inference]. _IEEE Transactions on Visualization & Computer Graphics_, 23(1):391–400. We propose and evaluate through a large crowd-sourced experiment a particular approach to graphical inference testing using maps. Full data analysis code and talk is available at the https://www.gicentre.net/maplineups[paper website]. doi: https://doi.org/10.1109/TVCG.2016.2598862[10.1109/TVCG.2016.2598862]
-* Wickham, H. et al. (2010) http://ieeexplore.ieee.org/document/5613434/[Graphical Inference for Infovis]. _IEEE Transactions on Visualization and Computer Graphics_, 16(6):973–979. Hadley Wickham's seminal piece on graphical inference -- well worth a read, if only for his erudite description of statistical testing and NHST. doi: https://doi.org/10.1109[10.1109/TVCG.2010.161]
+* Wickham, H. et al. (2010) http://ieeexplore.ieee.org/document/5613434/[Graphical Inference for Infovis]. _IEEE Transactions on Visualization and Computer Graphics_, 16(6):973–979. Hadley Wickham's seminal piece on graphical inference -- well worth a read, if only for his erudite description of statistical testing and NHST. doi: https://doi.org/10.1109/TVCG.2010.161[10.1109/TVCG.2010.161]
